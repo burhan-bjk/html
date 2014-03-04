@@ -1,0 +1,100 @@
+<html>
+<head> 
+<meta charset="utf-8">
+<style>
+.wrapper
+{
+width:50%;
+margin:0 auto;
+height:50%;
+background-color:gray;
+}
+.inputwrapper
+{
+margin:0 auto;
+width:25%;
+height:auto;
+}
+</style>
+
+
+
+</head>
+
+<body>
+<form name="load">
+<div class="wrapper">
+		<div class="inputwrapper">
+			<table>
+				<tr>
+					<td>1.Numara</td><td><input type="number" name="number1" id="number1" onkeypress="return isNumberKey(event)"></td>
+				</tr>
+				
+				<tr>
+					<td>2.Numara</td><td><input type="number" name="number2" id="number2" onkeypress="return isNumberKey(event)"></td>
+				</tr>
+				
+				<tr>
+					<td>3.Numara</td><td><input type="number" name="number3" id="number3" onkeypress="return isNumberKey(event)"></td>
+				</tr>
+				
+				<tr>
+					<td>4.Numara</td><td><input type="number" name="number4" id="number4" onkeypress="return isNumberKey(event)"></td>
+				</tr>
+				
+				<tr>
+					<td>5.Numara</td><td><input type="number" name="number5" id="number5" onkeypress="return isNumberKey(event)"></td>
+				</tr>
+			</table>
+			<br/>
+			
+			<button type="button" onclick="send();">Gönder</button>
+			
+		</div>
+</div>
+</form>
+<script type="text/javascript">
+	
+	function send()
+	{
+			var nesne = new Array (
+			document.load.number1,
+			document.load.number2,
+			document.load.number3,
+			document.load.number4,
+			document.load.number5
+			);
+			var nesne_value = new Array (
+			document.load.number1.value,
+			document.load.number2.value,
+			document.load.number3.value,
+			document.load.number4.value,
+			document.load.number5.value
+			);
+			
+			var maxValue = Math.max.apply(Math, nesne_value);
+			for(var i=0;i<nesne.length;i++)
+			{   
+				nesne[i].style.backgroundColor="#FFFFFF";
+				if(maxValue==nesne_value[i])
+				{
+					nesne[i].style.backgroundColor="#FF0000";
+				}
+			}
+
+}
+
+ function isNumberKey(evt)
+      {
+         var charCode = (evt.which) ? evt.which : event.keyCode
+         if (charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+
+         return true;
+      }
+</script>
+
+
+</body>
+
+</html>
